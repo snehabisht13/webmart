@@ -1,0 +1,89 @@
+<%- layout('layout/boilerplate') %>
+
+<div class="add-product-page">
+  <div class="product-card">
+
+    <h2 class="title">Add New Product</h2>
+    <p class="subtitle">
+      List your product and reach thousands of buyers
+    </p>
+
+    <form action="/add_product/<%= currUser._id%>" method="POST">
+
+      <!-- PRODUCT NAME -->
+      <div class="form-group">
+        <label>Product Name</label>
+        <input
+          type="text"
+          name="name"
+          placeholder="Enter product name"
+          required
+        />
+      </div>
+
+      <!-- CATEGORY -->
+      <div class="form-group">
+        <label>Category</label>
+        <select name="category" required>
+          <option value="">Select category</option>
+          <option value="Electronics">Electronics</option>
+          <option value="Fashion">Fashion</option>
+          <option value="Home">Home & Living</option>
+          <option value="Beauty">Beauty</option>
+          <option value="Books">Books</option>
+        </select>
+      </div>
+
+      <!-- PRICE & STOCK -->
+      <div class="form-row">
+        <div class="form-group">
+          <label>Price (₹)</label>
+          <input
+            type="number"
+            name="price"
+            placeholder="0.00"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Stock</label>
+          <input
+            type="number"
+            name="stock"
+            placeholder="Available quantity"
+            required
+          />
+        </div>
+      </div>
+
+      <!-- DESCRIPTION -->
+      <div class="form-group">
+        <label>Description</label>
+        <textarea
+          name="description"
+          rows="4"
+          placeholder="Describe your product..."
+          required
+        ></textarea>
+      </div>
+
+     <!-- IMAGE URL -->
+      <div class="form-group">
+        <label>Product Image URL</label>
+        <input
+          type="url"
+          name="image"
+          placeholder="https://example.com/image.jpg"
+          required
+        />
+      </div>
+
+      <!-- BUTTON -->
+      <button type="submit" class="btn-primary">
+        Add Product
+      </button>
+
+    </form>
+  </div>
+</div>

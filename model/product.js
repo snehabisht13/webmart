@@ -10,9 +10,12 @@ const productSchema = new mongoose.Schema({
         ref: "Seller",
         required: true
     },
-    category: String,
+    category: {
+        type: String,
+        enum: ["Electronics", "Fashion", "Home" , "Beauty","Books"]
+    },
     images: [String]
 });
 console.log("created");
 
-module.export = new mongoose.model("Product", productSchema);
+module.exports = new mongoose.model("Product", productSchema);

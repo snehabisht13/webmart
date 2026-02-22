@@ -1,0 +1,29 @@
+<%- layout('layout/boilerplate')%>
+
+<div class="products-container">
+  <h2 class="page-title">My Products</h2>
+
+  <div class="products-grid">
+    <% for (let product of products) { %>
+      <div class="product-card">
+        <img src="<%= product.images[0] %>" alt="<%= product.name %>" />
+
+        <div class="product-info">
+          <h3><%= product.name %></h3>
+          <p class="category"><%= product.category %></p>
+          <p class="description"><%= product.description %></p>
+
+          <div class="price-stock">
+            <span class="price">₹<%= product.price %></span>
+            <span class="stock">
+              <%= product.stock > 0 ? "In Stock" : "Out of Stock" %>
+            </span>
+          </div>
+          <div>
+            <a href="/showDetails/<%=product._id%>"><button class="btn btn-primary">View</button></a>
+          </div>
+        </div>
+      </div>
+    <% } %>
+  </div>
+</div>
