@@ -1,0 +1,107 @@
+.home {
+  font-family: "Poppins", sans-serif;
+}
+
+/* HERO */
+.hero {
+  height: 90vh;
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 10px;
+}
+
+.hero-content span {
+  color: #00e5ff;
+}
+
+.tagline {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.quote {
+  font-style: italic;
+  opacity: 0.9;
+  margin-bottom: 30px;
+}
+
+.hero-buttons .btn {
+  margin: 0 10px;
+}
+
+/* BUTTONS */
+.btn {
+  padding: 12px 25px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.primary {
+  background: #00e5ff;
+  color: #000;
+}
+
+.secondary {
+  border: 1px solid #00e5ff;
+  color: #00e5ff;
+}
+
+.large {
+  font-size: 1.1rem;
+}
+
+/* FEATURES */
+.features {
+  padding: 70px 10%;
+  text-align: center;
+}
+
+.features h2 {
+  margin-bottom: 40px;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+}
+
+.feature-card {
+  padding: 25px;
+  border-radius: 12px;
+  background: #f9f9f9;
+  transition: transform 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+}
+
+/* INSPIRATION */
+.inspiration {
+  padding: 50px;
+  background: #111;
+  color: #fff;
+  text-align: center;
+  font-size: 1.3rem;
+  font-style: italic;
+}
+
+/* CTA */
+.cta {
+  padding: 70px 10%;
+  text-align: center;
+}
+
+.cta h2 {
+  margin-bottom: 10px;
+}

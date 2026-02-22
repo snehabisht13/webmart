@@ -1,0 +1,89 @@
+
+<%- layout('layout/boilerplate') %>
+
+<div class="home">
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Welcome to <span>WebMart</span></h1>
+      <p class="tagline">
+        Where quality meets convenience.
+      </p>
+
+      <p class="quote">
+        “Shop smarter, live better.”
+      </p>
+
+      <div class="hero-buttons">
+        <% if (!currUser){%>
+        <a href="/register" class="btn secondary">Start shopping</a>
+        <a href="/register" class="btn secondary">Become a Seller</a>
+        <%} else if(currUser.role === "customer") {%>
+        <a href="/products" class="btn primary">Explore Products</a>
+        <%} else if(currUser.role === "seller"){%>
+         <a href="/products" class="btn primary">Explore business</a>
+        <%} else{%>
+            <a href="/products" class="btn primary">Explore Products</a>
+            <%}%>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <h2>Why Choose WebMart?</h2>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h3>🛍️ Wide Variety</h3>
+        <p>
+          Discover products from trusted sellers across multiple categories.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <h3>🔒 Secure Payments</h3>
+        <p>
+          Your transactions are protected with industry-standard security.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <h3>🚚 Fast Delivery</h3>
+        <p>
+          Reliable and quick delivery right to your doorstep.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <h3>🏪 Verified Sellers</h3>
+        <p>
+          Every seller is verified to ensure quality and trust.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE SECTION -->
+  <section class="inspiration">
+    <p>
+      “Great shopping isn’t about spending more,
+      it’s about choosing better.”
+    </p>
+  </section>
+
+  <!-- CALL TO ACTION -->
+  <section class="cta">
+    <h2>Start Your Journey with WebMart</h2>
+    <p>
+      Buy from trusted sellers or build your own online store today.
+    </p>
+    <% if (!currUser) {%>
+    <a href="/signup" class="btn primary large">
+      Get Started
+    </a>
+    <%}%>
+  </section>
+
+</div>

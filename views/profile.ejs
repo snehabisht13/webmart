@@ -1,0 +1,87 @@
+<%- layout('layout/boilerplate') %>
+
+<div class="profile-page container">
+  <div class="profile-card">
+
+    <h2 class="profile-title text-center">Profile Information</h2>
+    <p class="profile-subtitle text-center">Update your personal details</p>
+
+    <form action="/profile/update/<%=currUser._id%>" method="POST" class="horizontal-form">
+
+      <!-- Name -->
+      <div class="form-row">
+        <label>Full Name</label>
+        <input
+          type="text"
+          name="name"
+          value="<%= currUser?.name %>"
+          placeholder="Enter your full name"
+          required
+        />
+      </div>
+
+      <!-- Email -->
+      <div class="form-row">
+        <label>Email Address</label>
+        <input
+          type="email"
+          name="email"
+          value="<%= currUser?.email %>"
+          placeholder="Enter your email"
+          required
+        />
+      </div>
+
+      <!-- Role -->
+      <div class="form-row">
+        <label>Role</label>
+        <input
+          type="text"
+          value="<%= currUser?.role %>"
+          readonly
+        />
+      </div>
+
+      <!-- Shop Name -->
+      <div class="form-row">
+        <label>Shop Name</label>
+        <input
+          type="text"
+          name="shopName"
+          value="<%= seller?.shopName %>"
+          placeholder="Enter shop name"
+        />
+      </div>
+
+      <!-- Phone -->
+      <div class="form-row">
+        <label>Phone</label>
+        <input
+          type="tel"
+          name="phone"
+          value="<%= seller?.phone %>"
+          placeholder="Enter phone number"
+        />
+      </div>
+
+      <!-- Address -->
+      <div class="form-row">
+        <label>Address</label>
+        <textarea
+          name="address"
+          rows="3"
+          placeholder="Enter your address"
+        ><%= seller?.address %></textarea>
+      </div>
+
+      <!-- Button -->
+      <div class="form-actions">
+        <button type="submit" class="btn-primary">
+          Save Changes
+        </button>
+      </div>
+
+    </form>
+
+  </div>
+</div>

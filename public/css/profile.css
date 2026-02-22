@@ -1,0 +1,60 @@
+.horizontal-form {
+  width: 100%;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.form-row label {
+  font-size: 14px;
+  color: #444;
+}
+
+.form-row input,
+.form-row textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.form-row input:focus,
+.form-row textarea:focus {
+  border-color: #4e73df;
+  outline: none;
+}
+
+.form-row input[readonly] {
+  background: #f3f3f3;
+  cursor: not-allowed;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.btn-primary {
+  padding: 10px 26px;
+  background: #4e73df;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: #375ac2;
+}
+
+.profile-page{
+  margin-top: 20px;
+}
