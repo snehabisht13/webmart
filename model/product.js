@@ -16,6 +16,6 @@ const productSchema = new mongoose.Schema({
     },
     images: [String]
 });
-console.log("created");
+
 
 module.exports = new mongoose.model("Product", productSchema);

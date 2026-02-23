@@ -1,0 +1,44 @@
+<%- layout('layout/boilerplate')%>
+
+
+<div class="checkout-container">
+
+    <!-- Left Section : Address Form -->
+    <div class="card">
+        <h2>Delivery Details</h2>
+
+        <form action="/checkout" method="POST">
+
+            <label>Full Address</label>
+            <textarea name="address" required></textarea>
+
+            <label>Phone Number</label>
+            <input type="text" name="phone" required>
+
+            <button type="submit">Proceed to Payment</button>
+
+        </form>
+    </div>
+
+    <!-- Right Section : Order Summary -->
+    <div class="card">
+        <h2>Order Summary</h2>
+
+        <% cart.items.forEach(item => { %>
+            <div class="order-item">
+                <div>
+                    <p class="product-name"><%= item.product.title %></p>
+                    <p class="quantity">Qty: <%= item.quantity %></p>
+                </div>
+                <p>₹ <%= item.product.price * item.quantity %></p>
+            </div>
+        <% }) %>
+
+        <hr>
+
+        <div class="total">
+            Total: ₹ <%= cart.totalPrice %>
+        </div>
+    </div>
+
+</div>

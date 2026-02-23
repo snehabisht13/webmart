@@ -32,10 +32,11 @@
       </div>
 
       <!-- ACTIONS -->
-      <div class="action-buttons">
-        <button class="btn-primary">Add to Cart</button>
-        <button class="btn-secondary">Buy Now</button>
-      </div>
+      <form action="/addToCart/<%=product._id%>" method="POST">
+        <div>
+          <button class="btn btn-primary">Add to cart</button>
+        </div>
+      </form>
     </div>
 
   </div>

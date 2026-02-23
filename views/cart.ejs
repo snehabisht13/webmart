@@ -1,0 +1,52 @@
+<%- layout('layout/boilerplate') %>
+
+<div class="cart-container">
+  <h2 class="cart-title">Your Cart</h2>
+
+  <% if (!cart || cart.items.length === 0) { %>
+    <p class="empty-cart">Your cart is empty 🛒</p>
+  <% } else { %>
+
+    <div class="cart-items">
+      <% for (let item of cart.items) { %>
+        <div class="cart-item">
+          <img src="<%= item.product.images[0] %>" alt="<%= item.product.name %>">
+
+          <div class="item-info">
+            <h3><%= item.product.name %></h3>
+            <p class="category"><%= item.product.category %></p>
+            <p class="price">₹<%= item.priceAtAdd %></p>
+
+            <div class="quantity">
+              <form action="/cart/decrease/<%= item.product._id %>" method="POST">
+                <button>-</button>
+              </form>
+
+              <span><%= item.quantity %></span>
+
+              <form action="/cart/increase/<%= item.product._id %>" method="POST">
+                <button>+</button>
+              </form>
+            </div>
+          </div>
+
+          <form action="/cart/remove/<%= item.product._id %>" method="POST">
+            <button class="remove-btn"><p>remove</p></button>
+          </form>
+        </div>
+      <% } %>
+    </div>
+
+    <!-- CART SUMMARY -->
+    <div class="cart-summary">
+      <p>Total Items: <strong><%= cart.totalQuantity %></strong></p>
+      <p>Total Price: <strong>₹<%= cart.totalPrice %></strong></p>
+
+      <form action="/checkout">
+           <button class="checkout-btn">Proceed to Checkout</button>
+      </form>
+      
+    </div>
+
+  <% } %>
+</div>
