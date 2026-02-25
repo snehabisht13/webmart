@@ -10,22 +10,28 @@
           <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="/show">Mart</a>
+          <a class="nav-link " href="/show/index">Mart</a>
         </li>
         <% if (currUser) {%> 
           <% if (currUser.role === "seller") {%>
         <li class="nav-item">
-          <a class="nav-link " href="/sellerProfile/<%=currUser._id%>">Profile</a>
+          <a class="nav-link " href="/seller/profile/<%=currUser._id%>">Profile</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="/add_product">Add Products</a>
+          <a class="nav-link " href="/seller/add_product">Add Products</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="/my_products/<%=currUser._id%>">My Products</a>
+          <a class="nav-link " href="/seller/my_products/<%=currUser._id%>">My Products</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link " href="/seller/myOrders/<%=currUser._id%>">Orders</a>
         </li>
         <%} else {%>
            <li class="nav-item">
           <a class="nav-link " href="/cart/<%=currUser._id%>">Cart</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="/cart/showOrders">Orders</a>
         </li>
           <%}%>
           <%}%>
@@ -35,10 +41,10 @@
           </a>
           <ul class="dropdown-menu">
             <% if (!currUser) {%>
-            <li><a class="dropdown-item" href="/login">Login</a></li>
-            <li><a class="dropdown-item" href="/signup">Sign Up</a></li>
+            <li><a class="dropdown-item" href="/user/login">Login</a></li>
+            <li><a class="dropdown-item" href="/user/signup">Sign Up</a></li>
             <% } else {%>
-            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+            <li><a class="dropdown-item" href="/user/logout">Logout</a></li>
             <% } %>
           </ul>
           

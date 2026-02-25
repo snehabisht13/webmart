@@ -10,11 +10,13 @@
   "description": "",
   "dependencies": {
     "bcryptjs": "^3.0.3",
+    "connect-flash": "^0.1.1",
     "ejs": "^4.0.1",
     "ejs-mate": "^4.0.0",
     "express": "^5.2.1",
     "express-session": "^1.19.0",
     "method-override": "^3.0.0",
-    "mongoose": "^9.2.1"
+    "mongoose": "^9.2.1",
+    "router": "^2.2.0"
   }
 }

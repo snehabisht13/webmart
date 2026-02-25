@@ -42,7 +42,7 @@
       <p>Total Items: <strong><%= cart.totalQuantity %></strong></p>
       <p>Total Price: <strong>₹<%= cart.totalPrice %></strong></p>
 
-      <form action="/checkout">
+      <form action="/cart/checkout" method="GET">
            <button class="checkout-btn">Proceed to Checkout</button>
       </form>
       

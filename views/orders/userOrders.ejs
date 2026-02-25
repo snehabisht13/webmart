@@ -1,0 +1,56 @@
+<%- layout('layout/boilerplate')%>
+
+<div class="orders-container">
+    <h1 class="page-title">All Orders</h1>
+
+    <% if (orders.length === 0) { %>
+        <p class="no-orders">No orders found.</p>
+    <% } %>
+
+    <% orders.forEach(order => { %>
+        <div class="order-card">
+
+            <div class="order-header">
+                <div>
+                    <h3>Order #<%= order._id.toString().slice(-6) %></h3>
+                    <p class="order-date">
+                        <%= order.createdAt.toDateString() %>
+                    </p>
+                </div>
+
+                <div class="order-total">
+                    ₹ <%= order.totalPrice %>
+                </div>
+            </div>
+
+            <div class="order-info">
+                <p><strong>Customer:</strong> <%= order.user.name %></p>
+                <p><strong>Email:</strong> <%= order.user.email %></p>
+                <p><strong>Address:</strong> <%= order.address %></p>
+                <p><strong>Phone:</strong> <%= order.phone_no %></p>
+            </div>
+
+            <table class="order-table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Qty</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% order.items.forEach(item => { %>
+                        <tr>
+                            <td><%= item.product.name %></td>
+                            <td>₹<%= item.product.price %></td>
+                            <td><%= item.quantity %></td>
+                            <td>₹<%= item.product.price * item.quantity %></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+
+        </div>
+    <% }) %>
+</div>

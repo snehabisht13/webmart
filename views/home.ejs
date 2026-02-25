@@ -17,14 +17,14 @@
 
       <div class="hero-buttons">
         <% if (!currUser){%>
-        <a href="/register" class="btn secondary">Start shopping</a>
-        <a href="/register" class="btn secondary">Become a Seller</a>
+        <a href="/user/signup" class="btn secondary">Start shopping</a>
+        <a href="/user/signup" class="btn secondary">Become a Seller</a>
         <%} else if(currUser.role === "customer") {%>
-        <a href="/products" class="btn primary">Explore Products</a>
+        <a href="/show/index" class="btn primary">Explore Products</a>
         <%} else if(currUser.role === "seller"){%>
-         <a href="/products" class="btn primary">Explore business</a>
+         <a href="/show/index" class="btn primary">Explore business</a>
         <%} else{%>
-            <a href="/products" class="btn primary">Explore Products</a>
+            <a href="/show/index" class="btn primary">Explore Products</a>
             <%}%>
       </div>
     </div>
