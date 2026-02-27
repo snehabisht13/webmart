@@ -74,23 +74,34 @@ module.exports.getAllMyProducts = async(req,res)=>{
     res.render("sellers/allProducts", {products});
 };
 
-module.exports.myOrders = async(req,res)=>{
-  const sellerId = req.session.userId;
-  // Step 1: Get seller products
-  const sellerProducts = await Product.find({ seller: sellerId });
-  console.log(sellerProducts);
-  // Step 2: Get product IDs
-  const productIds = sellerProducts.map(p => p._id);
-  console.log(productIds);
 
+module.exports.myOrders = async (req, res) => {
+  try {
+    const userId = new mongoose.Types.ObjectId(req.session.userId);
 
-  // Step 3: Find orders containing those products
-  const orders = await Order.find({
-    "items.product": { $in: productIds }
-  })
-  .populate("items.product")
-  .populate("user");
-  console.log(orders);
+    // 1️⃣ Find seller using logged-in user
+    const seller = await Seller.findOne({ user: userId });
 
-  res.render("sellers/myOrders", { orders });
+    if (!seller) {
+      return res.render("sellers/myOrders", { orders: [] });
+    }
+
+    // 2️⃣ Find products of that seller
+    const sellerProducts = await Product.find({ seller: seller._id });
+
+    const productIds = sellerProducts.map(p => p._id);
+
+    // 3️⃣ Find orders containing those products
+    const orders = await Order.find({
+      "items.product": { $in: productIds }
+    })
+      .populate("items.product")
+      .populate("user");
+
+    res.render("sellers/myOrders", { orders });
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Server Error");
+  }
 };

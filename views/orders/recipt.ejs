@@ -1,0 +1,59 @@
+<%- layout('layout/boilerplate')%>
+
+<div class="receipt-page">
+
+<div class="receipt-container">
+    
+    <div class="receipt-header">
+        <h1>Payment Receipt</h1>
+        <p>Thank you for your purchase!</p>
+    </div>
+
+    <div class="receipt-info">
+        <div>
+            <p><strong>Order ID:</strong> <%= order._id %></p>
+            <p><strong>Date:</strong> <%= order.createdAt.toDateString() %></p>
+        </div>
+        <div>
+            <p><strong>Customer:</strong> <%= order.user.name %></p>
+            <p><strong>Email:</strong> <%= order.user.email %></p>
+        </div>
+    </div>
+
+    <table class="receipt-table">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Qty</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% order.items.forEach(item => { %>
+                <tr>
+                    <td><%= item.product.name %></td>
+                    <td>₹ <%= item.product.price %></td>
+                    <td><%= item.quantity %></td>
+                    <td>₹ <%= item.product.price * item.quantity %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+
+    <div class="receipt-summary">
+        <h2>Total Amount: ₹ <%= order.totalPrice %></h2>
+    </div>
+
+    <div class="receipt-footer">
+        <p>Address: <%= order.address %></p>
+        <p>Phone: <%= order.phone_no %></p>
+        <p class="success">Payment Successful ✔</p>
+    </div>
+
+    <div class="print-btn">
+        <button onclick="window.print()">Print Receipt</button>
+    </div>
+
+</div>
+</div>

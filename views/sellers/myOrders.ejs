@@ -1,14 +1,14 @@
 <%- layout('layout/boilerplate')%>
 
 <div class="orders-container">
-    <h1 class="page-title">All Orders</h1>
+    <h1 class="page-title">Orders by customers</h1>
 
     <% if (orders.length === 0) { %>
         <p class="no-orders">No orders found.</p>
     <% } %>
 
     <% orders.forEach(order => { %>
-        <div class="order-card">
+        <div class="order-card" style="background-color:darkkhaki;">
 
             <div class="order-header">
                 <div>

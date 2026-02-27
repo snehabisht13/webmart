@@ -6,12 +6,15 @@ const ejsMate =  require('ejs-mate');
 const session = require('express-session');
 const flash = require('connect-flash');
 const bcrypt = require('bcryptjs');
+
 const User = require('./model/user');
 const Seller = require('./model/seller');
-const Product = require('./model/product');
-const methodOverride = require('method-override');
 const Cart = require('./model/cart');
 const Order = require('./model/order');
+const Product = require('./model/product');
+
+const methodOverride = require('method-override');
+
 const userRouter = require('./routes/user');
 const orderRouter = require('./routes/order');
 const productRouter = require('./routes/product');

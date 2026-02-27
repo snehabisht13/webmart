@@ -7,6 +7,8 @@ router.get("/checkout", isLoggedIn, orderController.getCheckout);
 
 router.post("/checkout" , isLoggedIn, orderController.postCheckout);
 
+router.get("/recipt/:id",isLoggedIn, orderController.getRecipt);
+
 router.get("/showOrders", isLoggedIn, orderController.showOrders);
 
 router.get("/:id" , isLoggedIn, orderController.getAddToCart);

@@ -2,10 +2,13 @@
   font-family: "Poppins", sans-serif;
 }
 
-/* HERO */
 .hero {
   height: 90vh;
-  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+    url("https://images.unsplash.com/photo-1580793241553-e9f1cce181af?q=80&w=1032&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;

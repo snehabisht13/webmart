@@ -1,6 +1,7 @@
 const Cart = require('../model/cart');
 const Product = require('../model/product');
 const Order = require('../model/order');
+const User = require('../model/user');
 
 module.exports.getAddToCart = async (req,res)=> {
     const cart = await Cart.findOne({user: req.session.userId}).populate("items.product");
@@ -162,8 +163,7 @@ module.exports.postCheckout =  async (req,res)=>{
 
     await order.save();
     await Cart.findOneAndDelete({ user: userId });
-    req.flash("success","Order booked");
-    res.redirect("/cart/showOrders");
+    res.redirect(`/cart/recipt/${order._id}`);
 };
 
 module.exports.showOrders = async(req,res)=>{
@@ -171,4 +171,10 @@ module.exports.showOrders = async(req,res)=>{
     .populate("items.product").populate("user").sort({createdAt: -1});
 
     res.render("orders/userOrders", {orders});
+};
+
+module.exports.getRecipt = async(req,res)=>{
+    const order = await Order.findById(req.params.id).populate("user").populate("items.product");
+    console.log(order);
+    res.render("orders/recipt", {order});
 };

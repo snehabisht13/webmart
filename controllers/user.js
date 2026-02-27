@@ -31,12 +31,14 @@ module.exports.postLogin =  async(req,res)=>{
     const ExistUser = await User.findOne({email:email});
     
     if(!ExistUser){
-        return res.status(400).send("User not found");
+        req.flash("error", "User not found");
+        return res.redirect("/user/login");
     }
     const isMatch = await bcrypt.compare(password , ExistUser.password);
 
     if(!isMatch){
-        return res.status(400).send("password doesn't match");
+        req.flash("error", "Password doesn't match. Try again");
+        return res.redirect("/user/login");
     };
     req.session.userId = ExistUser._id;
     req.flash("success", "Signed in successfully");

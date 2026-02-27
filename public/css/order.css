@@ -162,3 +162,116 @@ body {
 .order-table tr:nth-child(even) {
     background-color: #fafafa;
 }
+
+
+/* ===== Receipt Page Only ===== */
+
+.receipt-page {
+    margin: 0;
+    padding: 0;
+    background: #f4f6f9;
+    font-family: Arial, sans-serif;
+}
+
+.receipt-page .receipt-container {
+    max-width: 900px;
+    margin: 50px auto;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.receipt-page .receipt-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.receipt-page .receipt-header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+.receipt-page .receipt-header p {
+    color: #555;
+}
+
+.receipt-page .receipt-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.receipt-page .receipt-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+.receipt-page .receipt-table th,
+.receipt-page .receipt-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+.receipt-page .receipt-table th {
+    background: #f0f0f0;
+}
+
+.receipt-page .receipt-summary {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.receipt-page .receipt-summary h2 {
+    margin: 0;
+}
+
+.receipt-page .receipt-footer {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #444;
+}
+
+.receipt-page .success {
+    color: green;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.receipt-page .print-btn {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.receipt-page .print-btn button {
+    padding: 12px 25px;
+    border: none;
+    background: #2c5364;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.receipt-page .print-btn button:hover {
+    background: #203a43;
+}
+
+/* Print Styling */
+@media print {
+    .receipt-page .print-btn {
+        display: none;
+    }
+
+    .receipt-page {
+        background: white;
+    }
+
+    .receipt-page .receipt-container {
+        box-shadow: none;
+        margin: 0;
+        border-radius: 0;
+    }
+}

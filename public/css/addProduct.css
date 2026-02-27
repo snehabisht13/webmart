@@ -1,70 +1,80 @@
+/* Page wrapper */
 .add-product-page {
-  min-height: 90vh;
+  min-height: calc(100vh - 80px); /* accounts for navbar */
   background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 40px 15px;
 }
 
+/* Card */
 .product-card {
-      margin-top: 10px;
   background: #fff;
   padding: 35px;
   width: 100%;
   max-width: 500px;
   border-radius: 16px;
   box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  animation: fadeIn 0.5s ease;
 }
 
-.title {
+/* Headings */
+.product-card .title {
   text-align: center;
   margin-bottom: 5px;
 }
 
-.subtitle {
+.product-card .subtitle {
   text-align: center;
   color: #666;
   margin-bottom: 25px;
   font-size: 0.9rem;
 }
 
-.form-group {
+/* Form */
+.product-card .form-group {
   display: flex;
   flex-direction: column;
   margin-bottom: 15px;
 }
 
-.form-group label {
+.product-card .form-group label {
   font-weight: 500;
   margin-bottom: 5px;
 }
 
-.form-group input,
-.form-group textarea,
-.form-group select {
+/* Inputs */
+.product-card .form-group input,
+.product-card .form-group textarea,
+.product-card .form-group select {
   padding: 10px 12px;
   border-radius: 8px;
   border: 1px solid #ccc;
   font-size: 0.95rem;
 }
 
-.form-row {
+/* Row */
+.product-card .form-row {
   display: flex;
   gap: 15px;
 }
 
-.form-row .form-group {
+.product-card .form-row .form-group {
   flex: 1;
 }
 
-input:focus,
-textarea:focus,
-select:focus {
+/* Focus (scoped — IMPORTANT) */
+.add-product-page input:focus,
+.add-product-page textarea:focus,
+.add-product-page select:focus {
   outline: none;
   border-color: #00e5ff;
+  box-shadow: 0 0 0 2px rgba(0, 229, 255, 0.2);
 }
 
-.btn-primary {
+/* Button */
+.product-card .btn-primary {
   width: 100%;
   margin-top: 15px;
   padding: 12px;
@@ -77,6 +87,33 @@ select:focus {
   transition: 0.3s;
 }
 
-.btn-primary:hover {
+.product-card .btn-primary:hover {
   background: #00bcd4;
+}
+
+.product-card .btn-primary:active {
+  transform: scale(0.98);
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .product-card {
+    padding: 25px 20px;
+  }
+
+  .product-card .form-row {
+    flex-direction: column;
+  }
 }

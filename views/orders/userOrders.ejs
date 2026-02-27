@@ -1,13 +1,14 @@
 <%- layout('layout/boilerplate')%>
 
 <div class="orders-container">
-    <h1 class="page-title">All Orders</h1>
+    <h1 class="page-title">All orders</h1>
 
     <% if (orders.length === 0) { %>
         <p class="no-orders">No orders found.</p>
     <% } %>
 
     <% orders.forEach(order => { %>
+        <a href="/cart/recipt/<%=order._id%>" style="text-decoration: none; color: black;">
         <div class="order-card">
 
             <div class="order-header">
@@ -52,5 +53,6 @@
             </table>
 
         </div>
+        </a>
     <% }) %>
 </div>
